@@ -42,6 +42,25 @@
       <excludeFolder url="file://Z:/vendor/phpdocumentor/reflection-docblock" />
       <excludeFolder url="file://Z:/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://Z:/vendor/phpdocumentor/type-resolver" />
+      <excludeFolder url="file://Z:/vendor/psr/http-message" />
+      <excludeFolder url="file://Z:/vendor/kelunik/certificate" />
+      <excludeFolder url="file://Z:/vendor/daverandom/libdns" />
+      <excludeFolder url="file://Z:/vendor/league/uri-interfaces" />
+      <excludeFolder url="file://Z:/vendor/league/uri" />
+      <excludeFolder url="file://Z:/vendor/league/uri-parser" />
+      <excludeFolder url="file://Z:/vendor/amphp/byte-stream" />
+      <excludeFolder url="file://Z:/vendor/amphp/amp" />
+      <excludeFolder url="file://Z:/vendor/amphp/dns" />
+      <excludeFolder url="file://Z:/vendor/amphp/cache" />
+      <excludeFolder url="file://Z:/vendor/amphp/http" />
+      <excludeFolder url="file://Z:/vendor/amphp/hpack" />
+      <excludeFolder url="file://Z:/vendor/amphp/parser" />
+      <excludeFolder url="file://Z:/vendor/amphp/http-client" />
+      <excludeFolder url="file://Z:/vendor/amphp/serialization" />
+      <excludeFolder url="file://Z:/vendor/amphp/process" />
+      <excludeFolder url="file://Z:/vendor/amphp/sync" />
+      <excludeFolder url="file://Z:/vendor/amphp/socket" />
+      <excludeFolder url="file://Z:/vendor/amphp/windows-registry" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AdminRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -77,12 +78,27 @@ class Admin implements UserInterface
 
     public function setRoles(array $roles): self
     {
+
         $this->roles = $roles;
-        for ($role = $roles; $roles) {
 
+        $jsonStart = "{";
+        $jsonRoleMid = "'role':'";
+        $jsonRoleEnd = "'";
+        $jsonVirgoul = ",";
+        $jsonEnd = "}";
+        $json ="";
+
+        for ($i = 0; count($roles) > $i; $i++) {
+            if(( count($roles) -1) > $i){
+                $json = $json.$jsonRoleMid.$roles[$i].$jsonRoleEnd.$jsonVirgoul;
+            }
+            else{
+                $json = $json.$jsonRoleMid.$roles[$i].$jsonRoleEnd;
+            }
         }
+        $jsonFinish = $jsonStart.$json.$jsonEnd;
+        return $jsonFinish;
 
-        return $this;
     }
 
     public function getPlainPassword()

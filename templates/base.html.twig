@@ -16,9 +16,9 @@
 
 	<body>
 		{% block body %}
-			<div class="flex bg-gray-500">
-				<aside class="bg-gray-800 w-64 min-h-screen flex flex-col items-center text-center">
-					<div class="flex flex-wrap mt-8">
+			<div class="flex bg-gray-500 ">
+				<aside class="bg-gray-800 w-52 min-h-screen flex flex-col items-center">
+					<div class="flex flex-wrap mt-8 ">
 						<div class="w-1/2">
 							{% if is_granted('ROLE_ADMIN') %}
 							<span class="text-white"> BONJOUR {{ app.user.username }} </span>

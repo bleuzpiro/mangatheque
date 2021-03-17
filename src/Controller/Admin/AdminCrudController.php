@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Admin;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -22,7 +23,7 @@ class AdminCrudController extends AbstractCrudController
         return [
             IdField::new('id', "Identifaints")->hideOnForm(),
             TextField::new('username','Noms d\'utilisateurs'),
-            ArrayField::new('roles','Roles'),
+            ChoiceField::new('roles','Roles')->setChoices(["ADMIN"=>"ROLE_ADMIN","USER"=>"ROLE_USER"])->allowMultipleChoices(),
             TextField::new('password','Mots De Passes')
         ];
     }
