@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Weldcome!
+			{% endblock %}
+		</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+	</head>
+
+	<body>
+		{% block body %}
+			<div class="flex bg-gray-500">
+				<aside class="bg-gray-800 w-64 min-h-screen flex flex-col items-center text-center">
+					<div class="flex flex-wrap mt-8">
+						<div class="w-1/2">
+							{% if is_granted('ROLE_ADMIN') %}
+							<span class="text-white"> BONJOUR {{ app.user.username }} </span>
+
+								<a href="{{ path('admin') }}">
+									<button class="text-white px-4 py-2 rounded-md border border-blue-500 hover:bg-blue-500 hover:text-white">
+										Admin
+									</button>
+								</a>
+								<a href="{{ path('app_logout') }}">
+									<button class="text-white px-4 py-2 rounded-md border border-blue-500 hover:bg-blue-500 hover:text-white">
+										Deconnexion
+									</button>
+								</a>
+
+							{% elseif is_granted('ROLE_USER') %}
+								<span class="text-white"> BONJOUR {{ app.user.username }} </span>
+								<a href="{{ path('app_logout') }}">
+									<button class="text-white px-4 py-2 rounded-md border border-blue-500 hover:bg-blue-500 hover:text-white">
+										Deconnexion
+									</button>
+								</a>
+
+							{% else %}
+								<a href="{{ path('app_login') }}">
+									<button class="text-white px-4 py-2 rounded-md border border-blue-500 hover:bg-blue-500 hover:text-white">
+										Connexion
+									</button>
+								</a>
+								<a href="{{ path('inscription') }}">
+									<button class="text-white px-4 py-2 rounded-md border border-blue-500 hover:bg-blue-500 hover:text-white">
+										Inscription
+									</button>
+								</a>
+							{% endif %}
+						</div>
+					</div>
+					<div class="mt-10 mb-4">
+						<ul>
+							<a href="{{ path('home') }}">
+								<li class="text-white mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+									<span>
+										<svg class="fill-current h-6 w-6 " viewbox="0 0 24 24">
+											<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+										</svg>
+									</span>
+									<span class="ml-2">
+										Acceuil
+									</span>
+								</li>
+							</a>
+							<a href="{{ path('categorie') }}">
+								<li class="text-white mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+									<span>
+										<svg class="fill-current h-6 w-6 " viewbox="0 0 24 24">
+											<path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+										</svg>
+									</span>
+									<span class="ml-2">
+										Categories
+									</span>
+								</li>
+							</a>
+							<a href="{{ path('serie') }}">
+								<li class="text-white mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+									<span>
+										<svg class="fill-current h-6 w-6 " viewbox="0 0 24 24">
+											<path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+										</svg>
+									</span>
+									<span class="ml-2">
+										Serie
+									</span>
+								</li>
+							</a>
+							<a href="{{ path('manga') }}">
+								<li class="text-white mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+									<span>
+										<svg class="fill-current h-6 w-6 " viewbox="0 0 24 24">
+											<path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+										</svg>
+									</span>
+									<span class="ml-2">
+										Manga
+									</span>	
+								</li>
+							</a>
+							<a href="{{ path('editeur') }}">
+								<li class="text-white mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-gray-300  hover:font-bold rounded rounded-lg">
+									<span>
+										<svg class="fill-current h-6 w-6 " viewbox="0 0 24 24">
+											<path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+										</svg>
+									</span>
+										<span class="ml-2">
+											Editeur
+										</span>
+								</li>
+							</a>
+						</ul>
+					</div>
+				</aside>
+				{% block content %}{% endblock %}
+			</div>
+		{% endblock %}
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</body>
+</html>

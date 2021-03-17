@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block head %}{% endblock %}
+
+{% block content %}
+	<ul>
+		{% for key,serie in series %}
+			<li>
+				{{ serie }}
+			</li>
+		{% else %}
+			Aucune Series
+		{% endfor %}
+	</ul>
+{% endblock %}

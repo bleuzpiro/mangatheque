@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block head %}{% endblock %}
+
+{% block content %}
+	<ul>
+		{% for key,manga in mangas %}
+			<li>
+				Serie : {{ manga.serie }} | Prix : {{ manga.PrixManga }} €  | Pages : {{ manga.DescManga | raw }} | <img src="{{ asset('Images/') }}{{ manga.CheminImage }}" alt=""> |  Nombre de pages : {{ manga.NbPage }}
+			</li>
+		{% else %}
+			Aucun mangas
+		{% endfor %}
+	</ul>
+{% endblock %}
