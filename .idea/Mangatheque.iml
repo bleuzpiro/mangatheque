@@ -4,8 +4,8 @@
     <content url="file://Z:/">
       <sourceFolder url="file://Z:/src" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://Z:/spec" isTestSource="true" />
-      <sourceFolder url="file://Z:/tests" isTestSource="true" />
       <sourceFolder url="file://Z:/tests" isTestSource="true" packagePrefix="App\Tests\" />
+      <sourceFolder url="file://Z:/tests" isTestSource="true" />
       <excludeFolder url="file://Z:/vendor/symfony/security-bundle" />
       <excludeFolder url="file://Z:/vendor/composer" />
       <excludeFolder url="file://Z:/vendor/egulias/email-validator" />

@@ -31,7 +31,6 @@ class Admin implements UserInterface
     private $roles = [];
 
     /**
-     * @Assert\NotBlank
      */
     private $plainPassword;
 
@@ -73,31 +72,14 @@ class Admin implements UserInterface
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 
-        return array_unique($roles);
+        return $roles;
     }
 
-    public function setRoles(array $roles): self
+    public function setRoles(array $roles): array
     {
 
         $this->roles = $roles;
-
-        $jsonStart = "{";
-        $jsonRoleMid = "'role':'";
-        $jsonRoleEnd = "'";
-        $jsonVirgoul = ",";
-        $jsonEnd = "}";
-        $json ="";
-
-        for ($i = 0; count($roles) > $i; $i++) {
-            if(( count($roles) -1) > $i){
-                $json = $json.$jsonRoleMid.$roles[$i].$jsonRoleEnd.$jsonVirgoul;
-            }
-            else{
-                $json = $json.$jsonRoleMid.$roles[$i].$jsonRoleEnd;
-            }
-        }
-        $jsonFinish = $jsonStart.$json.$jsonEnd;
-        return $jsonFinish;
+        return $roles;
 
     }
 

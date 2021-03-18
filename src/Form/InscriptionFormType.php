@@ -20,8 +20,9 @@ class InscriptionFormType extends AbstractType
             ->add('username', TextType::class)
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
-                'first_options'  => array('label' => 'Password'),
-                'second_options' => array('label' => 'Repeat Password'),
+                'first_options'  => array('label' => 'Mot de pass'),
+                'second_options' => array('label' => 'Verif Mot de pass'),
+                'required'   => true,
             ))
             ->add('Inscription', SubmitType::class)
         ;

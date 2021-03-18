@@ -202,5 +202,7 @@
       <path value="Z:/vendor/amphp/windows-registry" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.2">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
 </project>
