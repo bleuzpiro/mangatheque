@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Manga;
 use Proxies\__CG__\App\Entity\Serie;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,11 +16,24 @@ class SerieController extends AbstractController
     public function index(): Response
     {
 
-        $repository = $this->getDoctrine()->getRepository(Serie::class);
-        $series =  $repository->findAll();
+        $series = $this->getDoctrine()->getRepository(Serie::class);
+
+        $mangas = $this->getDoctrine()->getRepository(Manga::class);
+
+        $series = $series->findAll();
+        $imageManga = [];
+        foreach ($series as $serie ){
+            $data = $mangas->findOneBy(array('serie'=> $serie));
+            if (empty($data)){
+                $imageManga[] = "";
+            }
+            else{
+                $imageManga[] = $data->getCheminImage();
+            }
+        }
 
         return $this->render('serie/index.html.twig', [
-            'series' => $series,
+            'series' => $series,'mangaImage' => $imageManga,
         ]);
     }
 }

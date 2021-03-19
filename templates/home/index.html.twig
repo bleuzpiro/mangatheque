@@ -6,20 +6,20 @@
 
 {% block content %}
 
-{#	z-10 bg-white rounded-tr-xl sm:rounded-t-xl lg:rounded-xl#}
-{#	shadow-lg lg:-mr-8#}
-{#	box-border h-1/2 w-1/2 mt-8#}
-{#	ml-8 mr-8 md:h-2/4#}
+
+
 	<div class="bg-white  rounded-xl shadow-lg mt-8 ml-8 mr-8 box-border h-1/2 w-3/4 sm:w-full md:w-full lg:w-full
 	xl:w-full">
+
 		<section class="px-4 sm:px-6 lg:px-4 xl:px-6 pt-4 pb-4 sm:pb-6 lg:pb-4 xl:pb-6 space-y-4 ">
 				<ul class="grid grid-cols-3 gap-4">
 					{% for manga in mangas|slice(0,3) %}
-							<a href="{{ path('manga') }}">
+
+							<a href="{{ path('manga', { serie: manga.id }) }}">
 							<div class=" group cursor-pointer rounded-lg p-4 border border-gray-200	hover:bg-light-blue-500
 							hover:border-transparent hover:shadow-lg">
 								<div class="text-xl text-center  font-bold">
-									{{ manga.serie}}
+									{{ manga.serie }}
 								</div>
 								<img src="images/{{ manga.CheminImage }}">
 							</div>

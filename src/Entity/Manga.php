@@ -25,7 +25,7 @@ class Manga
     private $NbPage;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="decimal", precision=5, scale=2)
      */
     private $PrixManga;
 

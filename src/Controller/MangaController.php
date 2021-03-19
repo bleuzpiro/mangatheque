@@ -10,16 +10,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class MangaController extends AbstractController
 {
     /**
-     * @Route("/manga", name="manga")
+     * @Route("/manga-{serie}", name="manga")
      */
-    public function index(): Response
+    public function index(int $serie): Response
     {
-
         $repository = $this->getDoctrine()->getRepository(Manga::class);
-        $mangas =  $repository->findAll();
+
+        $mangas =  $repository->findOneBy(array('id' => $serie));
 
         return $this->render('manga/index.html.twig', [
-            'mangas' => $mangas,
+            'manga' => $mangas,
         ]);
     }
+
 }
