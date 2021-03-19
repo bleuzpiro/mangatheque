@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210317122213 extends AbstractMigration
+final class Version20210319131031 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -24,7 +24,7 @@ final class Version20210317122213 extends AbstractMigration
         $this->addSql('CREATE TABLE auteur (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE cathegorie (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE editeur (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE manga (id INT AUTO_INCREMENT NOT NULL, serie_id INT DEFAULT NULL, auteur_id INT NOT NULL, nb_page INT NOT NULL, prix_manga INT NOT NULL, desc_manga MEDIUMTEXT DEFAULT NULL, chemin_image VARCHAR(255) DEFAULT NULL, INDEX IDX_765A9E03D94388BD (serie_id), INDEX IDX_765A9E0360BB6FE6 (auteur_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE manga (id INT AUTO_INCREMENT NOT NULL, serie_id INT DEFAULT NULL, auteur_id INT NOT NULL, nb_page INT NOT NULL, prix_manga DOUBLE PRECISION NOT NULL, desc_manga MEDIUMTEXT DEFAULT NULL, chemin_image VARCHAR(255) DEFAULT NULL, INDEX IDX_765A9E03D94388BD (serie_id), INDEX IDX_765A9E0360BB6FE6 (auteur_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE serie (id INT AUTO_INCREMENT NOT NULL, serie_editeur_id INT DEFAULT NULL, serie_cathegorie_id INT DEFAULT NULL, nom VARCHAR(255) NOT NULL, etat TINYINT(1) NOT NULL, nombres_de_tomes INT NOT NULL, INDEX IDX_AA3A93346283F725 (serie_editeur_id), INDEX IDX_AA3A93342C241E0B (serie_cathegorie_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE manga ADD CONSTRAINT FK_765A9E03D94388BD FOREIGN KEY (serie_id) REFERENCES serie (id)');
         $this->addSql('ALTER TABLE manga ADD CONSTRAINT FK_765A9E0360BB6FE6 FOREIGN KEY (auteur_id) REFERENCES auteur (id)');

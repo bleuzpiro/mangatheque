@@ -28,9 +28,9 @@ class MangaCrudController extends AbstractCrudController
             AssociationField::new('serie'),
             AssociationField::new('auteur'),
             IntegerField::new('nb_page'),
-            MoneyField::new('prix_manga')->setCurrency('EUR'),
+            MoneyField::new('prix_manga')->setCurrency('EUR')->setStoredAsCents(false),
             TextEditorField::new('desc_manga'),
-            ImageField::new('chemin_image')->setUploadDir('Public/Images')->setBasePath('Images')
+            ImageField::new('chemin_image')->setUploadDir('Public/Images')->setBasePath('Images'),
 
         ];
     }

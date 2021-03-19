@@ -181,25 +181,6 @@
       <path value="Z:/vendor/phpdocumentor/reflection-docblock" />
       <path value="Z:/vendor/phpdocumentor/reflection-common" />
       <path value="Z:/vendor/phpdocumentor/type-resolver" />
-      <path value="Z:/vendor/psr/http-message" />
-      <path value="Z:/vendor/kelunik/certificate" />
-      <path value="Z:/vendor/daverandom/libdns" />
-      <path value="Z:/vendor/league/uri-interfaces" />
-      <path value="Z:/vendor/league/uri" />
-      <path value="Z:/vendor/league/uri-parser" />
-      <path value="Z:/vendor/amphp/byte-stream" />
-      <path value="Z:/vendor/amphp/amp" />
-      <path value="Z:/vendor/amphp/dns" />
-      <path value="Z:/vendor/amphp/cache" />
-      <path value="Z:/vendor/amphp/http" />
-      <path value="Z:/vendor/amphp/hpack" />
-      <path value="Z:/vendor/amphp/parser" />
-      <path value="Z:/vendor/amphp/http-client" />
-      <path value="Z:/vendor/amphp/serialization" />
-      <path value="Z:/vendor/amphp/process" />
-      <path value="Z:/vendor/amphp/sync" />
-      <path value="Z:/vendor/amphp/socket" />
-      <path value="Z:/vendor/amphp/windows-registry" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2">

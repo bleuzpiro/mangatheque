@@ -4,13 +4,14 @@
 {% block head %}{% endblock %}
 
 {% block content %}
-	<ul>
-		{% for key,serie in series %}
-			<li>
-				{{ serie }}
-			</li>
-		{% else %}
-			Aucune Series
-		{% endfor %}
+	<ul class="grid grid-cols-3 gap-4 min-h-3">
+			{% for key,serie in series %}
+				<div class="group hover:shadow-lg h-52">
+					<img src="images/{{ mangaImage[key] }}">
+				</div>
+			{% endfor %}
 	</ul>
+
+
 {% endblock %}
+
