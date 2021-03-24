@@ -12,16 +12,14 @@
 	xl:w-full">
 
 		<section class="px-4 sm:px-6 lg:px-4 xl:px-6 pt-4 pb-4 sm:pb-6 lg:pb-4 xl:pb-6 space-y-4 ">
-				<ul class="grid grid-cols-3 gap-4">
+				<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 					{% for manga in mangas|slice(0,3) %}
-
 							<a href="{{ path('manga', { serie: manga.id }) }}">
-							<div class=" group cursor-pointer rounded-lg p-4 border border-gray-200	hover:bg-light-blue-500
-							hover:border-transparent hover:shadow-lg">
+							<div class=" group cursor-pointer rounded-lg p-4 border border-gray-200	hover:border-transparent hover:shadow-lg">
 								<div class="text-xl text-center  font-bold">
 									{{ manga.serie }}
 								</div>
-								<img src="images/{{ manga.CheminImage }}">
+								<img class="rounded-lg" src="images/{{ manga.CheminImage }}">
 							</div>
 						</a>
 					{% endfor%}

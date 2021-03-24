@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3308
--- Généré le :  jeu. 18 mars 2021 à 10:05
+-- Généré le :  mer. 24 mars 2021 à 15:14
 -- Version du serveur :  5.7.28
 -- Version de PHP :  7.4.0
 
@@ -56,15 +56,14 @@ CREATE TABLE IF NOT EXISTS `auteur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `auteur`
 --
 
 INSERT INTO `auteur` (`id`, `nom`) VALUES
-(1, 'Masashi Kishimoto'),
-(2, 'Kōhei Horikoshi');
+(1, 'Masashi Kishimoto');
 
 -- --------------------------------------------------------
 
@@ -105,9 +104,10 @@ CREATE TABLE IF NOT EXISTS `doctrine_migration_versions` (
 --
 
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20210312133336', '2021-03-12 13:33:42', 2603),
-('DoctrineMigrations\\Version20210312133852', '2021-03-12 13:39:02', 1326),
-('DoctrineMigrations\\Version20210312141330', '2021-03-12 14:13:38', 526);
+('DoctrineMigrations\\Version20210319131031', '2021-03-19 13:10:35', 3437),
+('DoctrineMigrations\\Version20210319134006', '2021-03-19 13:40:09', 569),
+('DoctrineMigrations\\Version20210324141437', '2021-03-24 14:14:54', 680),
+('DoctrineMigrations\\Version20210324151312', '2021-03-24 15:13:16', 457);
 
 -- --------------------------------------------------------
 
@@ -120,16 +120,14 @@ CREATE TABLE IF NOT EXISTS `editeur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `editeur`
 --
 
 INSERT INTO `editeur` (`id`, `nom`) VALUES
-(1, 'Kana'),
-(2, 'Ki-oon'),
-(3, 'test');
+(1, 'Kana');
 
 -- --------------------------------------------------------
 
@@ -141,11 +139,13 @@ DROP TABLE IF EXISTS `manga`;
 CREATE TABLE IF NOT EXISTS `manga` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `serie_id` int(11) DEFAULT NULL,
+  `auteur_id` int(11) NOT NULL,
   `nb_page` int(11) NOT NULL,
-  `prix_manga` int(11) NOT NULL,
+  `prix_manga` decimal(5,2) NOT NULL,
   `desc_manga` mediumtext COLLATE utf8mb4_unicode_ci,
   `chemin_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `auteur_id` int(11) NOT NULL,
+  `tome` int(11) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_765A9E03D94388BD` (`serie_id`),
   KEY `IDX_765A9E0360BB6FE6` (`auteur_id`)
@@ -155,13 +155,12 @@ CREATE TABLE IF NOT EXISTS `manga` (
 -- Déchargement des données de la table `manga`
 --
 
-INSERT INTO `manga` (`id`, `serie_id`, `nb_page`, `prix_manga`, `desc_manga`, `chemin_image`, `auteur_id`) VALUES
-(1, 1, 192, 600, '<div>Naruto est un garçon un peu spécial. Il est toujours tout seul et son caractère fougueux ne l\'aide pas vraiment à se faire apprécier dans son village. Malgré cela, il garde au fond de lui une ambition: celle de devenir un maître Hokage, la plus haute distinction dans l\'ordre des ninjas, et ainsi obtenir la reconnaissance de ses pairs.&nbsp;</div>', 'Naruto-Tome-1-avec-Sticker-euro.jpg', 1),
-(2, 2, 196, 600, '<div>Dans un monde où 80 % de la population possède un super-pouvoir appelé alter, les héros font partie de la vie quotidienne. Et les super-vilains aussi ! Face à eux se dresse l\'invincible All Might, le plus puissant des héros ! Le jeune Izuku Midoriya en est un fan absolu. Il n\'a qu\'un rêve : entrer à la Hero Academia pour suivre les traces de son idole.<br><br>Le problème, c\'est qu\'il fait partie des 20 % qui n\'ont aucun pouvoir...<br>Son destin est bouleversé le jour où sa route croise celle d\'All Might en personne ! Ce dernier lui offre une chance inespérée de voir son rêve se réaliser. Pour Izuku, le parcours du combattant ne fait que commencer !&nbsp;</div>', 'Myheroacademia.jpg', 2),
-(3, 3, 654, 500, '<div>cvn</div>', 'Naruto-Tome-1-avec-Sticker-euro.jpg', 2),
-(4, 3, 156, 600, '<div>cgn</div>', 'Naruto-Tome-1-avec-Sticker-euro.jpg', 2),
-(5, 3, 65, 600, '<div>fhj<br><br></div>', 'Myheroacademia.jpg', 2),
-(6, 3, 21, 600, '<div>cv</div>', 'Myheroacademia.jpg', 2);
+INSERT INTO `manga` (`id`, `serie_id`, `auteur_id`, `nb_page`, `prix_manga`, `desc_manga`, `chemin_image`, `tome`, `date`) VALUES
+(1, 1, 1, 196, '3.00', '<div>test test test</div>', 'Naruto-Tome-1-avec-Sticker-euro.jpg', 1, NULL),
+(3, 2, 1, 65, '58.00', '<div>fg</div>', 'Myheroacademia.jpg', 0, NULL),
+(4, 3, 1, 24, '6.00', '<div>213</div>', 'Naruto-Tome-1-avec-Sticker-euro.jpg', 0, NULL),
+(5, 4, 1, 45, '6.00', '<div>54</div>', 'Naruto-Tome-1-avec-Sticker-euro.jpg', 0, NULL),
+(6, 5, 1, 45, '0.00', '<div>fgh</div>', 'Naruto-Tome-1-avec-Sticker-euro.jpg', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -180,16 +179,24 @@ CREATE TABLE IF NOT EXISTS `serie` (
   PRIMARY KEY (`id`),
   KEY `IDX_AA3A93346283F725` (`serie_editeur_id`),
   KEY `IDX_AA3A93342C241E0B` (`serie_cathegorie_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `serie`
 --
 
 INSERT INTO `serie` (`id`, `serie_editeur_id`, `serie_cathegorie_id`, `nom`, `etat`, `nombres_de_tomes`) VALUES
-(1, 1, 1, 'Naruto', 1, 0),
-(2, 2, 1, 'My Hero Academia', 0, 0),
-(3, 3, 1, 'test', 0, 3);
+(1, 1, 1, 'Naruto', 1, 50),
+(2, 1, 1, 'test', 1, 65),
+(3, 1, 1, 'test2', 0, 645),
+(4, 1, 1, 'test3', 0, 654),
+(5, 1, 1, 'test4', 0, 65),
+(6, 1, 1, 'test5', 0, 32),
+(7, 1, 1, 'test6', 1, 54),
+(8, 1, 1, 'test7', 1, 65),
+(9, 1, 1, 'test8', 0, 65),
+(10, 1, 1, 'test9', 0, 65),
+(11, 1, 1, 'test10', 0, 654);
 
 --
 -- Contraintes pour les tables déchargées

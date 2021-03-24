@@ -18,7 +18,7 @@
 	<body>
 		{% block body %}
 			<div class="flex bg-gray-500 ">
-				<aside class="bg-gray-800 w-52 min-h-screen flex flex-col items-center">
+				<aside class="bg-gray-800 w-44 md:max-w-28 min-h-screen flex flex-col items-center">
 					<div class="flex flex-wrap mt-8 ">
 						<div class="grid grid-cols-1 text-center">
 							{% if is_granted('ROLE_ADMIN') %}
@@ -115,6 +115,8 @@
 		{% endblock %}
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
+
+			<script src="js/app.js"></script>
 		{% endblock %}
 	</body>
 </html>
