@@ -1,6 +1,6 @@
 var openmodal = document.querySelectorAll('.modal-open')
 for (var i = 0; i < openmodal.length; i++) {
-    openmodal[i].addEventListener('click', function(event){
+    openmodal[i].addEventListener('click', function (event) {
         event.preventDefault()
         toggleModal()
     })
@@ -14,7 +14,7 @@ for (var i = 0; i < closemodal.length; i++) {
     closemodal[i].addEventListener('click', toggleModal)
 }
 
-document.onkeydown = function(evt) {
+document.onkeydown = function (evt) {
     evt = evt || window.event
     var isEscape = false
     if ("key" in evt) {
@@ -22,13 +22,10 @@ document.onkeydown = function(evt) {
     } else {
         isEscape = (evt.keyCode === 27)
     }
-    if (isEscape && document.body.classList.contains('modal-active')) {
-        toggleModal()
-    }
 };
 
 
-function toggleModal () {
+function toggleModal() {
     const body = document.querySelector('body')
     const modal = document.querySelector('.modal')
     modal.classList.toggle('opacity-0')
