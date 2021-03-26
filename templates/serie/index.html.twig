@@ -10,11 +10,32 @@
 
 				<div class="group hover:shadow-lg ">
 					<a href="{{ path('manga', {'serie': serie.id}) }}">
-						<img class="rounded-lg max-h-60" src="images/{% if mangaImage[key] %}{{ mangaImage[key] }}{% else %}noimage.jpg{% endif %}">
+						<img class="rounded-t-lg max-h-60" src="images/{% if mangaImage[key] %}{{ mangaImage[key] }}{%
+							else %}noimage.jpg{% endif %}">
+						<p class="text-center{% if serie.etat == true %} bg-green-500 {% else %}  bg-red-500  {% endif
+						%}rounded-b-lg">{{ serie.nom }}</p>
 					</a>
 				</div>
 			{% endfor %}
 		</ul>
+	</div>
+	<div class="bg-white rounded fixed bottom-0 right-0 w-52">
+		<svg class="h-6 w-6 text-teal mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg>
+		<div class="grid grid-cols-2 gap-1">
+			<div class="font-bold pr-2">ETAT</div>
+			<div class="place-self-start">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+					  class="w-8 items-end">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+				</svg>
+			</div>
+			<div class="font-bold">ETAT</div>
+			<div>
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+				</svg>
+			</div>
+		</div>
 	</div>
 
 
