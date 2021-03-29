@@ -2,25 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c6197b0-6c31-477a-a018-4f732330653c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/serie/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/serie/index.html.twig" afterDir="false" />
-      <change beforePath="Z:/.env" beforeDir="false" afterPath="Z:/.env" afterDir="false" />
-      <change beforePath="Z:/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="Z:/.idea/Mangatheque.iml" beforeDir="false" />
-      <change beforePath="Z:/.idea/misc.xml" beforeDir="false" afterPath="Z:/.idea/misc.xml" afterDir="false" />
-      <change beforePath="Z:/.idea/modules.xml" beforeDir="false" afterPath="Z:/.idea/modules.xml" afterDir="false" />
-      <change beforePath="Z:/.idea/php.xml" beforeDir="false" afterPath="Z:/.idea/php.xml" afterDir="false" />
-      <change beforePath="Z:/.idea/symfony2.xml" beforeDir="false" />
-      <change beforePath="Z:/.idea/vcs.xml" beforeDir="false" afterPath="Z:/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="Z:/assets/app.js" beforeDir="false" afterPath="Z:/assets/app.js" afterDir="false" />
-      <change beforePath="Z:/assets/controllers.json" beforeDir="false" afterPath="Z:/assets/controllers.json" afterDir="false" />
-      <change beforePath="Z:/package-lock.json" beforeDir="false" afterPath="Z:/package-lock.json" afterDir="false" />
-      <change beforePath="Z:/package.json" beforeDir="false" afterPath="Z:/package.json" afterDir="false" />
-      <change beforePath="Z:/postcss.config.js" beforeDir="false" />
-      <change beforePath="Z:/public/js/app.js" beforeDir="false" afterPath="Z:/public/js/app.js" afterDir="false" />
-      <change beforePath="Z:/tailwind.config.js" beforeDir="false" />
-      <change beforePath="Z:/templates/manga/index.html.twig" beforeDir="false" afterPath="Z:/templates/manga/index.html.twig" afterDir="false" />
-      <change beforePath="Z:/templates/serie/index.html.twig" beforeDir="false" afterPath="Z:/templates/serie/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,6 +186,7 @@
       <workItem from="1616748669862" duration="8000" />
       <workItem from="1616751698470" duration="5870000" />
       <workItem from="1616766600005" duration="3236000" />
+      <workItem from="1617011303164" duration="106000" />
     </task>
     <servers />
   </component>
