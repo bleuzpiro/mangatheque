@@ -6,7 +6,7 @@
 {% block content %}
 	<ul>
 	{% for key,categorie in categories %}
-		<li>
+		<li class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
 			{{ categorie }}
 		</li>
 	{% else %}

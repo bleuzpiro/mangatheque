@@ -25,6 +25,16 @@ class Manga
     private $NbPage;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $tome;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $date;
+
+    /**
      * @ORM\Column(type="decimal", precision=5, scale=2)
      */
     private $PrixManga;
@@ -128,14 +138,28 @@ class Manga
         return $this;
     }
 
+    public function getTome(): ?int
+    {
+        return $this->tome;
+    }
 
+    public function setTome(?int $tome): self
+    {
+        $this->tome = $tome;
 
+        return $this;
+    }
 
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
 
+    public function setDate(?\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
-
-
-
-
+        return $this;
+    }
 
 }

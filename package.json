@@ -2,9 +2,12 @@
     "devDependencies": {
         "@symfony/stimulus-bridge": "^2.0.0",
         "@symfony/webpack-encore": "^1.0.0",
+        "autoprefixer": "^10.2.5",
         "core-js": "^3.0.0",
+        "postcss": "^8.2.8",
         "regenerator-runtime": "^0.13.2",
         "stimulus": "^2.0.0",
+        "tailwindcss": "^2.0.4",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",

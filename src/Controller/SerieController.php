@@ -12,15 +12,23 @@ class SerieController extends AbstractController
 {
     /**
      * @Route("/serie", name="serie")
+     * @Route("/serie-{editeur}", name="serie")
      */
-    public function index(): Response
+    public function index(int $editeur=0): Response
     {
 
         $series = $this->getDoctrine()->getRepository(Serie::class);
 
         $mangas = $this->getDoctrine()->getRepository(Manga::class);
 
-        $series = $series->findAll();
+        if ($editeur == 0) {
+            $series = $series->findAll();
+        }
+        else{
+            $series = $series->findBy(["Serie_Editeur" => $editeur]);
+        }
+
+
         $imageManga = [];
         foreach ($series as $serie ){
             $data = $mangas->findOneBy(array('serie'=> $serie));

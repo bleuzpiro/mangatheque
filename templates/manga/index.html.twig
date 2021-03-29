@@ -4,27 +4,81 @@
 {% block head %}{% endblock %}
 
 {% block content %}
-	<ul class="grid grid-cols-3 md:flex-inline gap-x-4 h-52">
+	<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 max-h-60 rounded-lg mt-4 ml-4 mr-4">
+		{% for manga in mangas %}
+			<div class="group cursor-pointer inline-block text-center">
+				<button class="modal-open rounded-lg" >
+					<img class="rounded-lg max-h-60" src="{{ asset('Images/') }}{{ manga.CheminImage }}" alt=""  id="{{ manga.id }}">
+				</button>
+				<div class="opacity-0 w-80 bg-gray-800 text-white text-center text-xs rounded-r-lg rounded-bl-lg py-2 absolute z-10 group-hover:opacity-100 ml-14 px-3 pointer-events-none ">
+					Serie :
+					{{ manga.serie.nom }}
+					/ Tome :
+					{{ manga.tome }}<br><br>
+					<div class="truncate max-w-xs">
+						Description :
+						{{ manga.DescManga | raw }}
+					</div><br>
+					Nombre de pages :
+					{{ manga.NbPage }}<br>
+					Prix :
+					{{ manga.PrixManga }}
+					€
+					<svg class="absolute text-black h-2  left-0 bottom-full " x="0px" y="0px" viewbox="0 0 255 255" xml:space="preserve"><polygon class="fill-current" points="200,260 100,100 0,260"/></svg>
+				</div>
+			</div>
 
-			<li class="">
-				<div class="group cursor-pointer relative inline-block border-b border-gray-400 w-28
-				text-center
-"><img src="{{ asset('Images/') }}{{ manga.CheminImage }}" alt="">
-					<div class="opacity-0 w-80 bg-gray-800 text-white text-center text-xs rounded-r-lg rounded-bl-lg
-					py-2 absolute
-					z-10
-					group-hover:opacity-100 ml-14 px-3 pointer-events-none">
-						Serie : {{ manga.serie }} <br>
-						Description : {{ manga.DescManga | raw }}
-						Nombre de pages : {{ manga.NbPage }}<br>
-						Prix : {{ manga.PrixManga }} €
-						<svg class="absolute text-black h-2  left-0 bottom-full " x="0px" y="0px"
-							 viewBox="0 0
-						 255
-						255" xml:space="preserve"><polygon class="fill-current" points="200,260 100,100 0,260"/></svg>
+
+			<!--Modal-->
+			<div class="modal-{{ manga.id }} opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+				<div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+
+				<div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-hidden">
+
+
+					<!-- Add margin if you want to see some of the overlay behind the modal-->
+					<div
+						class="modal-content py-4 text-left px-6">
+						<!--Title-->
+						<div class="flex justify-between items-center pb-3">
+							<p class="text-2xl font-bold">{{ manga.serie.nom }}
+								/ Tome :
+								{{ manga.tome }}</p>
+						</div>
+
+						<!--Body-->
+						<p class="text-xl font-semibold">Desciption :</p>
+						<div class="overflow-y-scroll h-52">
+							<p>{{ manga.descManga | raw }}</p>
+						</div><br>
+						<p>
+							<span class="font-semibold">Prix :</span>
+							{{ manga.prixManga }}</p>
+						<p>
+							<span class="font-semibold">Nombre de pages :</span>
+							{{ manga.nbPage }}</p>
+						<p>
+							<span class="font-semibold">Auteur :</span>
+							{{ manga.auteur }}</p>
+						<p>
+							<span class="font-semibold">Editeur :</span>
+							{{ manga.serie.serieEditeur }}</p>
+
+						<!--Footer-->
+						<div class="flex justify-end pt-2">
+							<button class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Commentaire</button>
+							<button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400" id="{{ manga.id }}">Close</button>
+						</div>
+
 					</div>
 				</div>
-			</li>
+			</div>
 
+
+		{% else %}
+			<h1>Aucun Manga dans cette Série</h1>
+		{% endfor %}
 	</ul>
+
+
 {% endblock %}
