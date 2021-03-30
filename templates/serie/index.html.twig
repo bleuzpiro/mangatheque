@@ -8,12 +8,10 @@
 		<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 max-h-60 rounded-lg">
 			{% for key,serie in series %}
 
-				<div class="group hover:shadow-lg ">
+				<div class="group hover:shadow-lg  transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 ">
 					<a href="{{ path('manga', {'serie': serie.id}) }}">
-						<img class="rounded-t-lg max-h-60" src="images/{% if mangaImage[key] %}{{ mangaImage[key] }}{%
-																																																																																																																																																																																																																																																																																																													else %}noimage.jpg{% endif %}">
-						<p class="text-center{% if serie.etat == true %} bg-green-500 {% else %}  bg-red-500  {% endif
-																																																																																																																																																																																																																																																																																																												%}rounded-b-lg">{{ serie.nom }}</p>
+						<img class="rounded-t-lg max-h-60" src="images/{% if mangaImage[key] %}{{ mangaImage[key] }}{% else %}noimage.jpg{% endif %}">
+						<p class="text-center{% if serie.etat == true %} bg-green-500 {% else %}  bg-red-500  {% endif %}rounded-b-lg">{{ serie.nom }}</p>
 					</a>
 				</div>
 			{% endfor %}
