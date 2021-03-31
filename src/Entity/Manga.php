@@ -61,6 +61,17 @@ class Manga
      */
     private $auteur;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaires::class, mappedBy="manga")
+     */
+    private $commentaireManga;
+
+    public function __construct()
+    {
+        $this->commentaireManga = new ArrayCollection();
+    }
+
+
     public function getSerie(): ?Serie
     {
         return $this->serie;
@@ -158,6 +169,36 @@ class Manga
     public function setDate(?\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaires[]
+     */
+    public function getCommentaireManga(): Collection
+    {
+        return $this->commentaireManga;
+    }
+
+    public function addCommentaireManga(Commentaires $commentaireManga): self
+    {
+        if (!$this->commentaireManga->contains($commentaireManga)) {
+            $this->commentaireManga[] = $commentaireManga;
+            $commentaireManga->setManga($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaireManga(Commentaires $commentaireManga): self
+    {
+        if ($this->commentaireManga->removeElement($commentaireManga)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaireManga->getManga() === $this) {
+                $commentaireManga->setManga(null);
+            }
+        }
 
         return $this;
     }

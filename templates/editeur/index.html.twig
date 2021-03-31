@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-
 {% block head %}{% endblock %}
 
 {% block content %}
-	<div class="block">
-		<ul class="">
+	<div class="m-4">
+		<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 max-h-60 rounded-lg">
 			{% for editeur in editeurs %}
 				<a href="{{ path('serie', {'editeur': editeur.id}) }}">
-					<div class="group cursor-pointer rounded-lg p-4 border border-gray-200 hover:bg-blue-500 hover:border-transparent hover:shadow-lg">
+					<div class="group bg-white rounded rounded-ld hover:shadow-lg transition duration-500 ease-in-out
+					transform hover:-translate-y-1 hover:scale-110 h-24 w-32 flex items-center justify-center">
 						<div class="text-xl text-center  font-bold">
 							{{ editeur.nom }}
 						</div>

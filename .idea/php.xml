@@ -109,8 +109,8 @@
       <path value="Z:/vendor/phpdocumentor/reflection-docblock" />
       <path value="Z:/vendor/phpdocumentor/reflection-common" />
       <path value="Z:/vendor/phpdocumentor/type-resolver" />
-      <path value="Z:/vendor/symfony/var-dumper_compare" />
       <path value="Z:/vendor/phpdocumentor/reflection-common_compare" />
+      <path value="Z:/vendor/doctrine/deprecations" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

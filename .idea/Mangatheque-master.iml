@@ -4,8 +4,8 @@
     <content url="file://Z:/">
       <sourceFolder url="file://Z:/spec" isTestSource="true" />
       <sourceFolder url="file://Z:/src" isTestSource="false" packagePrefix="App\" />
-      <sourceFolder url="file://Z:/tests" isTestSource="true" packagePrefix="App\Tests\" />
       <sourceFolder url="file://Z:/tests" isTestSource="true" />
+      <sourceFolder url="file://Z:/tests" isTestSource="true" packagePrefix="App\Tests\" />
       <excludeFolder url="file://Z:/vendor/symfony/config" />
       <excludeFolder url="file://Z:/vendor/symfony/http-client" />
       <excludeFolder url="file://Z:/vendor/symfony/string" />
@@ -114,6 +114,7 @@
       <excludeFolder url="file://Z:/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://Z:/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://Z:/vendor/symfony/var-dumper_compare" />
+      <excludeFolder url="file://Z:/vendor/doctrine/deprecations" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

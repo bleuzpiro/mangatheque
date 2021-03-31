@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Commentaires;
 use App\Entity\Manga;
 use Proxies\__CG__\App\Entity\Serie;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,8 +19,12 @@ class MangaController extends AbstractController
         $mangas = $this->getDoctrine()->getRepository(Manga::class);
         $mangas = $mangas->findBy(["serie" => $serie]);
 
+        $commentaires = $this->getDoctrine()->getRepository(Commentaires::class);
+        $commentaires = $commentaires->findAll();
+        dump($mangas);
+        dd($commentaires);
         return $this->render('manga/index.html.twig', [
-            'mangas' => $mangas, 'serieId' => $serie,
+            'mangas' => $mangas, 'serieId' => $serie, 'commentaires' => $commentaires,
         ]);
     }
 
