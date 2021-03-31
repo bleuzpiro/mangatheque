@@ -4,13 +4,14 @@
 {% block head %}{% endblock %}
 
 {% block content %}
-	<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 max-h-60 rounded-lg mt-4 ml-4 mr-4">
+	<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 max-h-60 rounded-lg
+	 mt-4 ml-4 mr-4">
 		{% for manga in mangas %}
 			<div class="group cursor-pointer inline-block text-center">
 				<button class="modal-open rounded-lg" >
 					<img class="rounded-lg max-h-60" src="{{ asset('Images/') }}{{ manga.CheminImage }}" alt=""  id="{{ manga.id }}">
 				</button>
-				<div class="opacity-0 w-80 bg-gray-800 text-white text-center text-xs rounded-r-lg rounded-bl-lg py-2 absolute z-10 group-hover:opacity-100 ml-14 px-3 pointer-events-none ">
+				<div class="opacity-0 w-80 bg-gray-800 text-white text-center text-xs rounded-r-lg rounded-bl-lg py-2 absolute z-0 group-hover:opacity-100 ml-14 px-3 pointer-events-none ">
 					Serie :
 					{{ manga.serie.nom }}
 					/ Tome :
@@ -30,15 +31,18 @@
 
 
 			<!--Modal-->
-			<div class="modal-{{ manga.id }} opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+			<div class="modal-{{ manga.id }} opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex
+			items-center justify-center">
 				<div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
 
-				<div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-hidden">
+				<div class="modal-container bg-white w-11/12 md:max-w-2xl mx-auto rounded shadow-lg z-50">
 
 
 					<!-- Add margin if you want to see some of the overlay behind the modal-->
 					<div
-						class="modal-content py-4 text-left px-6">
+						class="modal-content py-4 text-left px-6 overflow-y-scroll h-96 scrollbar scrollbar-thumb-rounded
+						border-solid border-b-2
+						border-gray-400">
 						<!--Title-->
 						<div class="flex justify-between items-center pb-3">
 							<p class="text-2xl font-bold">{{ manga.serie.nom }}
@@ -53,25 +57,52 @@
 						</div><br>
 						<p>
 							<span class="font-semibold">Prix :</span>
-							{{ manga.prixManga }}</p>
+							{{ manga.prixManga }}
+						</p>
 						<p>
 							<span class="font-semibold">Nombre de pages :</span>
-							{{ manga.nbPage }}</p>
+							{{ manga.nbPage }}
+						</p>
 						<p>
 							<span class="font-semibold">Auteur :</span>
-							{{ manga.auteur }}</p>
+							{{ manga.auteur }}
+						</p>
 						<p>
 							<span class="font-semibold">Editeur :</span>
-							{{ manga.serie.serieEditeur }}</p>
+							{{ manga.serie.serieEditeur }}
+						</p>
+						<br>
+						<p class="text-xl font-semibold">Commentaire :</p>
+						<div class="overflow-y-scroll h-52">
+							<p>{{ dump(manga) }}
+								</p>
+						</div>
+						<br>
+						<div class="grid grid-cols-6 gap-2 flex items-center">
+							<textarea class="border col-span-4" id="coucou" cols="70" rows="5"></textarea>
+							<input class="border text-7xl col-span-1" type="number" placeholder="">
+							<div class="col-span-1 text-7xl">/10</div>
+						</div>
+						<br>
+						<div class="flex items-center justify-center">
+							<div class="m-3">
+								<button class="bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
+									<span class="mr-2">Send</span>
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+										<path fill="currentcolor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+									</svg>
+								</button>
+							</div>
+
+						</div>
+					</div>
 
 						<!--Footer-->
-						<div class="flex justify-end pt-2">
-							<button class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Commentaire</button>
+						<div class="flex justify-end m-2">
 							<button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400" id="{{ manga.id }}">Close</button>
 						</div>
-
-					</div>
 				</div>
+
 			</div>
 
 
