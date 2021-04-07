@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+
+{% block head %}{% endblock %}
+
+{% block content %}
+	<div class="m-4">
+		<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 max-h-60 rounded-lg">
+			{% for unManga in mangas %}
+				<div class="group cursor-pointer inline-block text-center">
+					<button class="modal-open rounded-lg" >
+						<img class="rounded-lg max-h-60" src="{{ asset('Images/') }}{{ unManga.CheminImage }}" alt=""  id="{{ unManga.id }}">
+					</button>
+					<div class="opacity-0 w-80 bg-gray-800 text-white text-center text-xs rounded-r-lg rounded-bl-lg py-2 absolute z-0 group-hover:opacity-100 ml-14 px-3 pointer-events-none ">
+						Serie :
+						{{ unManga.serie.nom }}
+						/ Tome :
+						{{ unManga.tome }}<br><br>
+						<div class="truncate max-w-xs">
+							Description :
+							{{ unManga.DescManga | raw }}
+						</div><br>
+						Nombre de pages :
+						{{ unManga.NbPage }}<br>
+						Prix :
+						{{ unManga.PrixManga }}
+						€
+						<svg class="absolute text-black h-2  left-0 bottom-full " x="0px" y="0px" viewbox="0 0 255 255" xml:space="preserve"><polygon class="fill-current" points="200,260 100,100 0,260"/></svg>
+					</div>
+				</div>
+
+
+				<!--Modal-->
+				<div class="modal-{{ unManga.id }} opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex
+				items-center justify-center">
+					<div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+
+					<div class="modal-container bg-white w-11/12 md:max-w-3xl mx-auto rounded shadow-lg z-50 ">
+
+
+						<!-- Add margin if you want to see some of the overlay behind the modal-->
+						<div
+								class="modal-content py-4 text-left px-6 overflow-y-scroll h-96 scrollbar scrollbar-thumb-rounded
+							border-solid border-b-2
+							border-gray-400 pb-8">
+							<!--Title-->
+							<div class="flex justify-between items-center pb-3">
+								<p class="text-2xl font-bold">{{ unManga.serie.nom }}
+									/ Tome :
+									{{ unManga.tome }}</p>
+							</div>
+
+							<!--Body-->
+							<p class="text-xl font-semibold">Desciption :</p>
+							<div class="overflow-y-scroll h-52">
+								<p>{{ unManga.descManga | raw }}</p>
+							</div><br>
+							<p>
+								<span class="font-semibold">Prix :</span>
+								{{ unManga.prixManga }}
+							</p>
+							<p>
+								<span class="font-semibold">Nombre de pages :</span>
+								{{ unManga.nbPage }}
+							</p>
+							<p>
+								<span class="font-semibold">Auteur :</span>
+								{{ unManga.auteur }}
+							</p>
+							<p>
+								<span class="font-semibold">Editeur :</span>
+								{{ unManga.serie.serieEditeur }}
+							</p>
+							<br>
+							<p class="text-xl font-semibold">Commentaire :</p>
+							<div class="overflow-y-scroll h-52 border">
+								{% for commentaire in commentaires %}
+									{% if commentaire.manga.id == unManga.id %}
+										<div class="grid grid-flow-col m-2">
+											<p class="bg-gray-300 rounded-l-lg w-auto max-w-96 p-2">
+												{{ commentaire.text }}
+											</p>
+											<p class="{% if commentaire.note >= 15 %} bg-green-500 {% elseif commentaire.note >= 10 and commentaire.note < 15 %}  bg-yellow-500 {% else %} bg-red-500 {% endif %} rounded-r-lg flex items-center
+											justify-center w-14">
+												{{ commentaire.note }}
+											</p>
+										</div>
+									{% endif %}
+								{% endfor %}
+							</div>
+							<br>
+							<div class="grid grid-cols-6 gap-2 flex items-center">
+								<textarea class="border col-span-4" id="coucou" cols="70" rows="5" placeholder="Commentaire..."></textarea>
+								<input class="border text-7xl col-span-1" type="number" placeholder="0" max="20" min="0">
+								<div class="col-span-1 text-7xl">/20</div>
+							</div>
+							<br>
+							<div class="flex items-center justify-center">
+								<div class="m-3">
+									<button class="bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
+										<span class="mr-2">Envoyer</span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+											<path fill="currentcolor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<!--Footer-->
+						<div class="flex justify-end m-2 ">
+							<button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400" id="{{ unManga.id }}">Close</button>
+						</div>
+					</div>
+
+				</div>
+
+
+			{% else %}
+				<h1>Aucun Manga dans cette Série</h1>
+			{% endfor %}
+		</ul>
+	</div>
+
+
+{% endblock %}

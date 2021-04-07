@@ -1,0 +1,1 @@
+INSERT INTO `admin` (`id`, `username`, `roles`, `password`) VALUES (NULL, 'teetjy', '{\"role\": \"ROLE_ADMIN\"}', '$argon2id$v=19$m=65536,t=4,p=1$TThwNU1wNHdkaDFOU2tGRw$TObMd6qToxnaA5wWgOB/ZSgYUvqZn6eRlwYx0IVwFWQ')
