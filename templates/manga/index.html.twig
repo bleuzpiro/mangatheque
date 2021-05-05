@@ -9,7 +9,7 @@
 			{% for unManga in mangas %}
 				<div class="group cursor-pointer inline-block text-center">
 					<button class="modal-open rounded-lg" >
-						<img class="rounded-lg max-h-60" src="{{ asset('Images/') }}{{ unManga.CheminImage }}" alt=""  id="{{ unManga.id }}">
+						<img class="rounded-lg max-h-60" src="{{ asset('Images/') }}{{ unManga.CheminImage }}" alt=""  onclick="commentaire(this.id)" id="{{ unManga.id }}">
 					</button>
 					<div class="opacity-0 w-80 bg-gray-800 text-white text-center text-xs rounded-r-lg rounded-bl-lg py-2 absolute z-0 group-hover:opacity-100 ml-14 px-3 pointer-events-none ">
 						Serie :
@@ -89,23 +89,25 @@
 								{% endfor %}
 							</div>
 							<br>
-							<div class="grid grid-cols-6 gap-2 flex items-center">
-								<textarea class="border col-span-4" id="coucou" cols="70" rows="5" placeholder="Commentaire..."></textarea>
-								<input class="border text-7xl col-span-1" type="number" placeholder="0" max="20" min="0">
-								<div class="col-span-1 text-7xl">/20</div>
-							</div>
-							<br>
-							<div class="flex items-center justify-center">
-								<div class="m-3">
-									<button class="bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
-										<span class="mr-2">Envoyer</span>
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-											<path fill="currentcolor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
-										</svg>
-									</button>
+								
+								<div class="grid grid-cols-6 gap-2 flex items-center">
+									<textarea class="border col-span-4" id="coucou" cols="70" rows="5" placeholder="Commentaire..."></textarea>
+									<input class="border text-7xl col-span-1" type="number" placeholder="0" max="20" min="0">
+									<div class="col-span-1 text-7xl">/20</div>
+								</div>
+								<br>
+								<div class="flex items-center justify-center">
+									<div class="m-3">
+										<button onclick="" class="bg-white text-gray-800 font-bold rounded border-b-2
+										border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
+											<span class="mr-2">Envoyer</span>
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+												<path fill="currentcolor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+											</svg>
+										</button>
+									</div>
 								</div>
 							</div>
-						</div>
 
 						<!--Footer-->
 						<div class="flex justify-end m-2 ">
@@ -121,6 +123,22 @@
 			{% endfor %}
 		</ul>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<button class="ajax" onclick="commentaire(this.id)" id="">click me!</button>
+	<script>
+		function commentaire(id) {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
 
+					console.log(this.responseText)
+					console.log(id)
 
+				}
+			};
+			xhttp.open("GET", "{{ path("ajaxManga", {'mangaid':1}) }}", true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send();
+		}
+	</script>
 {% endblock %}
